@@ -1,0 +1,77 @@
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+
+[character]
+success_symbol = "[↳ 🐵](bold green)"
+error_symbol = "[↳ 🙈](bold red)"
+
+[kubernetes]
+disabled = false
+
+[status]
+disabled = false
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = "🌱 "
+style = "bold green"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "⚔️  "
+ahead = "🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️  ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️  ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = false
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = true
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[golang]
+format = " [$symbol($version)]($style) "
+
+[python]
+format = " [$symbol($version)]($style) "
+
+[lua]
+format = " [$symbol($version)]($style) "
+
+[rust]
+format = " [$symbol($version)]($style) "
+
+[helm]
+format = " [$symbol($version)]($style) "
+
+
+[package]
+format = " [$symbol($version)]($style) "
