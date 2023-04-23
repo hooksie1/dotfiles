@@ -1,10 +1,10 @@
-local lsp = require('lsp-zero')
+local lsp = require('lsp-zero').preset({})
 
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-	'tsserver',
-	'eslint',
+    'lua_ls',
+    'luau_lsp',
 	'gopls',
 	'rust_analyzer',
 })
@@ -40,4 +40,31 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n",  "<leader>vrn", function() vim.diagnostic.rename() end, opts)
 end)
 
+lsp.format_on_save({
+    servers = {
+        ['gopls'] = {'go'}
+    }
+})
+
+require('lspconfig').gopls.setup({
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            gofumpt = true,
+            staticcheck = true,
+        },
+    },
+})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+  end
+})
+
+
 lsp.setup()
+

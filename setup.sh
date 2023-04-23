@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zellij
 mkdir -p ~/.config/alacritty
 
