@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
   use({
 	  'catppuccin/nvim',
 	  as = 'catppuccin',
-	  config = function() 
+	  config = function()
 		  vim.cmd('colorscheme catppuccin')
 		end
   })
@@ -23,6 +23,22 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+
+  use{
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+    }
+  }
+
+  use {"akinsho/toggleterm.nvim", tag = "*", config = function()
+        require("toggleterm").setup()
+        end
+    }
+
   use({
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
