@@ -42,29 +42,16 @@ end)
 
 lsp.format_on_save({
     servers = {
-        ['gopls'] = {'go'}
+        ['null-ls'] = {'go'}
     }
 })
 
-require('lspconfig').gopls.setup({
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-            gofumpt = true,
-            staticcheck = true,
-        },
-    },
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-  end
-})
-
-
 lsp.setup()
 
+local null_ls = require('null-ls')
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.goimports,
+    }
+})
