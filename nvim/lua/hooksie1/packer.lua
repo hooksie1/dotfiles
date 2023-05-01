@@ -6,17 +6,16 @@ return require('packer').startup(function(use)
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
+  use{
 	  'catppuccin/nvim',
 	  as = 'catppuccin',
 	  config = function()
 		  vim.cmd('colorscheme catppuccin')
 		end
-  })
+  }
 
   use('nvim-treesitter/nvim-treesitter')
   use('nvim-treesitter/playground')
@@ -24,19 +23,19 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
-  use{
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "MunifTanjim/nui.nvim",
-    }
-  }
+ use{
+  "nvim-neo-tree/neo-tree.nvim",
+   branch = "v2.x",
+   requires = {
+       "nvim-lua/plenary.nvim",
+       "nvim-tree/nvim-web-devicons",
+       "MunifTanjim/nui.nvim",
+   }
+ }
 
-  use {"akinsho/toggleterm.nvim", tag = "*", config = function()
-        require("toggleterm").setup()
-        end
+  use {
+      "akinsho/toggleterm.nvim",
+      tag = '*',
     }
 
   use({
