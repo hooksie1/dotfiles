@@ -1,11 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", ":Neotree reveal<cr>")
 
--- toggleterm
-vim.keymap.set("n", "<C-t>", ":ToggleTerm size=40 dir=. hidden=true direction=float<cr>")
-vim.keymap.set("t", "<C-t>", [[<C-\><C-N>:ToggleTerm size=40 dir=. hidden=true direction=float<cr>]])
-vim.keymap.set("i", "<C-t>", [[<C-\><C-N>:ToggleTerm size=40 dir=. hidden=true direction=float<cr>]])
-
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
