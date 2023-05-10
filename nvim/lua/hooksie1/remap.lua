@@ -40,3 +40,8 @@ vim.keymap.set("i", "(", "()<Esc>i")
 vim.keymap.set("i", "[", "[]<Esc>i")
 vim.keymap.set("i", "\"", "\"\"<Esc>i")
 vim.keymap.set("i", "'", "''<Esc>i")
+
+vim.keymap.set("v", "<leader>(", "xi()<Esc>P")
+vim.keymap.set("v", "<leader>[", "xi[]<Esc>P")
+vim.keymap.set("v", "<leader>\"", "xi\"\"<Esc>P")
+vim.keymap.set("v", "<leader>'", "xi''<Esc>P")
