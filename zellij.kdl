@@ -2,10 +2,14 @@
 keybinds {
     unbind "Ctrl g"
     unbind "Ctrl t"
+    unbind "Ctrl o"
+    unbind "Ctrl h"
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         unbind "Ctrl t"
+        unbind "Ctrl o"
+        unbind "Ctrl h"
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
