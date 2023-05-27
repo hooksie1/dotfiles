@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
       "akinsho/toggleterm.nvim",
       tag = '*',
     }
+  use {"wakatime/vim-wakatime"}
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
