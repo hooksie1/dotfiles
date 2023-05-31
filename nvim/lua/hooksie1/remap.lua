@@ -45,3 +45,5 @@ vim.keymap.set("v", "<leader>(", "xi()<Esc>P")
 vim.keymap.set("v", "<leader>[", "xi[]<Esc>P")
 vim.keymap.set("v", "<leader>\"", "xi\"\"<Esc>P")
 vim.keymap.set("v", "<leader>'", "xi''<Esc>P")
+
+vim.keymap.set("i", "<D-v>", "<C-r>+")
