@@ -90,6 +90,16 @@ _G.packer_plugins = {
     path = "/Users/jhooks/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  fzf = {
+    loaded = true,
+    path = "/Users/jhooks/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/jhooks/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/jhooks/.local/share/nvim/site/pack/packer/start/harpoon",
