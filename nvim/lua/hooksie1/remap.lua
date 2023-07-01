@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", ":Neotree reveal<cr>")
 
 vim.keymap.set("n", "<leader>f", ":FZF<CR>")

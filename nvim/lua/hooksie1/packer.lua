@@ -1,72 +1,80 @@
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+vim.g.mapleader = " "
 
-  use {
+return require('lazy').setup({
+  {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+	  dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
 
-  use{
+  {
 	  'catppuccin/nvim',
 	  as = 'catppuccin',
 	  config = function()
 		  vim.cmd('colorscheme catppuccin')
 		end
-  }
+  },
 
-  use('nvim-treesitter/nvim-treesitter')
-  use('nvim-treesitter/playground')
-  use('theprimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
-  use {
+  'nvim-treesitter/nvim-treesitter',
+  'nvim-treesitter/playground',
+  'theprimeagen/harpoon',
+  'mbbill/undotree',
+  'tpope/vim-fugitive',
+  {
     'junegunn/fzf.vim',
-    requires = { 'junegunn/fzf', run = ':call fzf#install()' }
-  }
+    dependencies = { 'junegunn/fzf', build = ':call fzf#install()' }
+  },
 
- use{
+ {
   "nvim-neo-tree/neo-tree.nvim",
    branch = "v2.x",
-   requires = {
+   dependencies = {
        "nvim-lua/plenary.nvim",
        "nvim-tree/nvim-web-devicons",
        "MunifTanjim/nui.nvim",
    }
- }
+  },
 
-  use {
+  {
       "akinsho/toggleterm.nvim",
       tag = '*',
-    }
-  use {"wakatime/vim-wakatime"}
+  },
+  {"wakatime/vim-wakatime"},
 
-  use({
+  {
     "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-  })
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
+  { 'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v2.x',
-	  requires = {
+	  dependencies = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},             -- Required
 		  {                                      -- Optional
 		  'williamboman/mason.nvim',
-		  run = function()
+		  build = function()
 			  pcall(vim.cmd, 'MasonUpdate')
 		  end,
-	  },
+	    },
 	  {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
 	  -- Autocompletion
 	  {'hrsh7th/nvim-cmp'},     -- Required
 	  {'hrsh7th/cmp-nvim-lsp'}, -- Required
 	  {'L3MON4D3/LuaSnip'},     -- Required
-  }
-}
-
-end)
+    }
+    },
+})
