@@ -26,7 +26,6 @@ export PATH=$GOBIN:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
-source $HOME/.cargo/env
 
 source ~/dotfiles/zsh/functions.sh
 source ~/dotfiles/zsh/keybindings.sh
