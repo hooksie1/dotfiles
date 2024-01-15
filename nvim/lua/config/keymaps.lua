@@ -7,4 +7,6 @@ return {
   vim.keymap.set("n", "<leader>y", '"+y'),
   vim.keymap.set("v", "<leader>y", '"+y'),
   vim.keymap.set("n", "<leader>y", '"+Y'),
+  vim.keymap.set("i", "jj", "<Esc>"),
+  vim.keymap.set("i", "AA", "<Esc>A"),
 }
