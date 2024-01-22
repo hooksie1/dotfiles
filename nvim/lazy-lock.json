@@ -1,7 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "7ce1b1519a45f48aa4b5f35b7b7a886b42fe56d8" },
   "LuaSnip": { "branch": "master", "commit": "a6355b12a3b7da0aef71f02560e17ff480182b97" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "5012a4758f1ab35f9d2ed5b017a75e9bb67b7e63" },
   "alpha-nvim": { "branch": "main", "commit": "dafa11a6218c2296df044e00f88d9187222ba6b0" },
   "bufferline.nvim": { "branch": "main", "commit": "4df8c8ae3a81fa40ed0d36b819fa1afe3bf0f167" },
   "catppuccin": { "branch": "main", "commit": "415b4b8c81c6552a00e79badf2e60e53e3a96bd0" },
@@ -51,5 +50,6 @@
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-startuptime": { "branch": "master", "commit": "c9da356b59eb30dfca6cd573b63d0e81c0a24ff9" },
+  "vim-wakatime": { "branch": "master", "commit": "cae21a19c3db4d9aadd5d320de3da0c99dfd0f62" },
   "which-key.nvim": { "branch": "main", "commit": "4b73390eec680b4c061ea175eb32c0ff3412271d" }
 }
