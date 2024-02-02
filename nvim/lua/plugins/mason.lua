@@ -13,7 +13,6 @@ return {
         "ansible-lint",
         "ansible-language-server",
         "html-lsp",
-        "php-stan",
       })
     end,
   },
