@@ -22,5 +22,29 @@ vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "j", keyCode("down"), nil, keyCode("
 vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "k", keyCode("up"), nil, keyCode("up"))
 vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "l", keyCode("right"), nil, keyCode("right"))
 
-hs.hotkey.bind({ "shift", "cmd" }, "h", hs.window.switcher.previousWindow)
-hs.hotkey.bind({ "shift", "cmd" }, "l", hs.window.switcher.nextWindow)
+local win = hs.window.focusedWindow()
+local next = win:screen():next()
+
+--hs.hotkey.bind({"shift", "cmd"}, "h", hs.window.switcher.previousWindow)
+--hs.hotkey.bind({"shift", "cmd"}, "l", hs.window.switcher.nextWindow)
+
+local function focusWindowEast()
+	hs.window.focusedWindow():focusWindowEast()
+end
+
+local function focusWindowWest()
+	hs.window.focusedWindow():focusWindowWest()
+end
+
+local function focusWindowNorth()
+	hs.window.focusedWindow():focusWindowNorth()
+end
+
+local function focusWindowSouth()
+	hs.window.focusedWindow():focusWindowSouth()
+end
+
+hs.hotkey.bind({ "cmd", "shift" }, "l", focusWindowEast)
+hs.hotkey.bind({ "cmd", "shift" }, "h", focusWindowWest)
+hs.hotkey.bind({ "cmd", "shift" }, "j", focusWindowSouth)
+hs.hotkey.bind({ "cmd", "shift" }, "k", focusWindowNorth)
