@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Create a new directory and enter it
-mkd() {
+function mkd() {
 	mkdir -p "$@"
 	cd "$@" || exit
 }
  
-tmpd() {
+function tmpd() {
 	local dir
 	if [ $# -eq 0 ]; then
 		dir=$(mktemp -d)
@@ -16,7 +16,7 @@ tmpd() {
 	cd "$dir" || exit
 }
 
-c() {
+function c() {
     cd $1;
     ls -G;
 }
