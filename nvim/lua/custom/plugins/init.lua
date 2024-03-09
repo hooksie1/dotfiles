@@ -10,6 +10,17 @@ return {
       auto_open = true,
     },
   },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    opts = function()
+      local nls = require 'null-ls'
+      return {
+        sources = {
+          nls.builtins.formatting.goimports,
+        },
+      }
+    end,
+  },
   { 'wakatime/vim-wakatime', lazy = false },
   {
     'akinsho/toggleterm.nvim',
