@@ -1,9 +1,35 @@
+format="""
+$battery\
+$hostname\
+$directory\
+$kubernetes\
+${custom}\
+$git_branch\
+$git_commit\
+$git_state\
+$golang\
+$python\
+$lua\
+$rust\
+$helm\
+$package\
+$line_break\
+$character
+"""
+
+add_newline = false
+
 [aws]
 disabled = true
 
 [gcloud]
 disabled = true
 
+[custom.nats]
+description = "Shows NATS context"
+command = "nats context info --json | jq -r .name"
+when = "true"
+style = "bold purple"
 
 [character]
 success_symbol = "[↳ 🐵](bold green)"
@@ -11,6 +37,8 @@ error_symbol = "[↳ 🙈](bold red)"
 
 [kubernetes]
 disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+style = "bold blue"
 
 [status]
 disabled = false
@@ -71,7 +99,6 @@ format = " [$symbol($version)]($style) "
 
 [helm]
 format = " [$symbol($version)]($style) "
-
 
 [package]
 format = " [$symbol($version)]($style) "

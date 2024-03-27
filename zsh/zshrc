@@ -38,7 +38,7 @@ alias k=kubectl
 alias ls='ls -G'
 alias vim="nvim"
 
-eval "$(/usr/local/bin/starship init zsh)"
+eval "$(/opt/homebrew/bin/starship init zsh)"
 
 
 export PATH="$HOME/.poetry/bin:$PATH"
