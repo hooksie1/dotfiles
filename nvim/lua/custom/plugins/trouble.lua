@@ -5,6 +5,7 @@ return {
     opts = {
       auto_open = true,
       auto_close = true,
+      icons = false,
     },
   },
 }
