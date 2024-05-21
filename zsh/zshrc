@@ -38,7 +38,7 @@ alias k=kubectl
 alias ls='ls -G'
 alias vim="nvim"
 
-eval "$(/opt/homebrew/bin/starship init zsh)"
+eval "$(/usr/local/bin/starship init zsh)"
 
 
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -51,3 +51,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+eval "$(atuin init zsh)"
