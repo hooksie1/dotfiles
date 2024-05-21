@@ -3,7 +3,7 @@ $battery\
 $hostname\
 $directory\
 $kubernetes\
-${custom}\
+$nats\
 $git_branch\
 $git_commit\
 $git_state\
@@ -22,14 +22,11 @@ add_newline = false
 [aws]
 disabled = true
 
+[directory]
+truncate_to_repo = false
+
 [gcloud]
 disabled = true
-
-[custom.nats]
-description = "Shows NATS context"
-command = "nats context info --json | jq -r .name"
-when = "true"
-style = "bold purple"
 
 [character]
 success_symbol = "[↳ 🐵](bold green)"
@@ -41,6 +38,9 @@ format = '[$symbol$context( \($namespace\))]($style) '
 style = "bold blue"
 
 [status]
+disabled = false
+
+[nats]
 disabled = false
 
 [git_branch]
