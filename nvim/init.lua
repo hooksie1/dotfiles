@@ -581,6 +581,13 @@ require('lazy').setup({
             filetypes = { 'v' },
           },
         },
+        opa = {},
+        regols = {
+          default_config = {
+            cmd = { 'regols' },
+            filetypes = { 'rego' },
+          },
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
