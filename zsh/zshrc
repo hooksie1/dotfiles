@@ -31,6 +31,8 @@ source ~/dotfiles/zsh/functions.sh
 source ~/dotfiles/zsh/keybindings.sh
 source <(kubectl completion zsh)
 source <(ratingsctl completion zsh)
+source <(nsc completion zsh)
+source <(mz completion zsh)
 
 alias r=ratingsctl
 
