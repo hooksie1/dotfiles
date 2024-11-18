@@ -13,7 +13,7 @@ config.keys = {
 		key = "y",
 		mods = "CTRL",
 		action = act.ActivateKeyTable({
-			name = "activate_tab",
+			name = "tabs",
 			one_shot = false,
 		}),
 	},
@@ -44,9 +44,21 @@ config.keys = {
 }
 
 config.key_tables = {
-	activate_tab = {
+	tabs = {
 		{ key = "h", action = act.ActivateTabRelative(-1) },
 		{ key = "l", action = act.ActivateTabRelative(1) },
+		{ key = "n", action = act.SpawnTab("CurrentPaneDomain") },
+		{
+			key = "r",
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
 		{ key = "Enter", action = "PopKeyTable" },
 	},
 	activate_pane = {
@@ -70,5 +82,26 @@ config.key_tables = {
 }
 
 --config.default_prog = { "/bin/zsh", "-l", "-c", "/opt/homebrew/bin/zellij" }
+--
+function tab_title(tab_info)
+	local title = tab_info.tab_title
+	if title and #title > 0 then
+		return title
+	end
+
+	return tab_info.active_pane.title
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = tab_title(tab)
+	if tab.is_active then
+		return {
+			{ Background = { Color = "#2b2042" } },
+			{ Text = " " .. title .. " " },
+		}
+	end
+
+	return title
+end)
 
 return config
