@@ -582,9 +582,9 @@ require('lazy').setup({
           },
         },
         opa = {},
+        regal = {},
         regols = {
           default_config = {
-            cmd = { 'regols' },
             filetypes = { 'rego' },
           },
         },
