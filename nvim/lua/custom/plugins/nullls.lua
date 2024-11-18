@@ -6,6 +6,7 @@ return {
       return {
         sources = {
           nls.builtins.formatting.goimports,
+          nls.builtins.diagnostics.regal,
         },
       }
     end,
