@@ -1,3 +1,6 @@
+## Window
+macos-window-shadow = false
+
 ## Theme
 theme = Ayu Mirage
 font-family = JetBrains Mono
@@ -13,7 +16,7 @@ keybind = ctrl+p>r>h=resize_split:left,50
 keybind = ctrl+p>r>l=resize_split:right,50
 keybind = ctrl+p>r>j=resize_split:down,50
 keybind = ctrl+p>r>k=resize_split:up,50
-keybind = ctrl+y>n=new_tab
-keybind = ctrl+y>l=last_tab
-keybind = ctrl+y>h=next_tab
-keybind = ctrl+y>h=next_tab
+keybind = ctrl+t>n=new_tab
+keybind = ctrl+t>l=last_tab
+keybind = ctrl+t>h=next_tab
+keybind = ctrl+t>h=next_tab
