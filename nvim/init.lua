@@ -177,6 +177,8 @@ vim.keymap.set('i', 'AA', '<Esc>A', { desc = 'jump to end of line and set to ins
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('n', '<leader>t', ':tabnew<cr>')
+vim.keymap.set('n', '<leader>tl', 'gt')
+vim.keymap.set('n', '<leader>th', 'gT')
 vim.keymap.set('n', '<leader>vs', '<C-w>v <cr>')
 vim.keymap.set('n', '<leader>hs', '<C-w>s <cr>')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
