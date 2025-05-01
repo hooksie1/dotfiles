@@ -8,10 +8,11 @@ function mkd() {
  
 function tmpd() {
 	local dir
+	local user=$(eval echo ~$USER)
 	if [ $# -eq 0 ]; then
 		dir=$(mktemp -d)
 	else
-		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+		dir=$(mktemp -d "${user}/tmp/${1}.XXXXXXXXXX")
 	fi
 	cd "$dir" || exit
 }
