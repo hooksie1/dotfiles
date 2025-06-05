@@ -8,7 +8,9 @@ APPS = {
 }
 
 local function activate(name)
-	hs.application.launchOrFocusByBundleID(name)
+	if not hs.application.launchOrFocusByBundleID(name) then
+		hs.alert.show("App not found")
+	end
 end
 
 for key, app in pairs(APPS) do
