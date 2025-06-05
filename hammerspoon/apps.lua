@@ -1,10 +1,9 @@
-KEYS = { "g", "z", "o", "s", "d" }
 APPS = {
-    g = "com.mitchellh.ghostty",
-    z = "app.zen-browser.zen",
-    o = "md.obsidian",
-    s = "com.tinyspeck.slackmacgap",
-    d = "dev.zed.Zed",
+    ["g"] = "com.mitchellh.ghostty",
+    ["z"] = "app.zen-browser.zen",
+    ["o"] = "md.obsidian",
+    ["s"] = "com.tinyspeck.slackmacgap",
+    ["d"] = "dev.zed.Zed",
 }
 
 local function activate(name)
@@ -13,8 +12,8 @@ local function activate(name)
     app:activate()
 end
 
-for _, key in ipairs(KEYS) do
+for key, app in pairs(APPS) do
     hs.hotkey.bind(HYPER, key, function()
-        activate(APPS[key])
+        activate(app)
     end)
 end
