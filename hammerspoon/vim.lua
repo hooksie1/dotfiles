@@ -1,5 +1,4 @@
 --  set up vim motions
-local keys = { "h", "j", "k", "l" }
 directions = {
     ["h"] = "left",
     ["j"] = "down",
