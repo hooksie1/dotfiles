@@ -1,10 +1,10 @@
 --  set up vim motions
 local keys = { "h", "j", "k", "l" }
 directions = {
-    h = "left",
-    j = "down",
-    k = "up",
-    l = "right"
+    ["h"] = "left",
+    ["j"] = "down",
+    ["k"] = "up",
+    ["l"] = "right"
 }
 
 local function keyCode(key, modifiers)
@@ -15,6 +15,6 @@ local function keyCode(key, modifiers)
     end
 end
 
-for _, key in ipairs(keys) do
-    hs.hotkey.bind({ "cmd", "ctrl" }, key, keyCode(directions[key]), nil, keyCode(directions[key]))
+for key, direction in pairs(directions) do
+    hs.hotkey.bind({ "cmd", "ctrl" }, key, keyCode(direction), nil, keyCode(direction))
 end
