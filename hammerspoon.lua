@@ -1,5 +1,13 @@
 hs.loadSpoon("ReloadConfiguration")
-spoon.ReloadConfiguration:start()
+
+--  set up vim motions
+local keys = { "h", "j", "k", "l" }
+directions = {
+	h = "left",
+	j = "down",
+	k = "up",
+	l = "right",
+}
 
 local function keyCode(key, modifiers)
 	modifiers = modifiers or {}
@@ -9,7 +17,17 @@ local function keyCode(key, modifiers)
 	end
 end
 
-vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "h", keyCode("left"), nil, keyCode("left"))
-vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "j", keyCode("down"), nil, keyCode("down"))
-vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "k", keyCode("up"), nil, keyCode("up"))
-vimMode = hs.hotkey.bind({ "cmd", "ctrl" }, "l", keyCode("right"), nil, keyCode("right"))
+for _, key in ipairs(keys) do
+	hs.hotkey.bind({ "cmd", "ctrl" }, key, keyCode(directions[key]), nil, keyCode(directions[key]))
+end
+
+-- setup window selections
+hs.loadSpoon("AppWindowSwitcher"):bindHotkeys({
+	["Ghostty"] = { { "cmd", "ctrl" }, "t" },
+	["Zen"] = { { "cmd", "ctrl" }, "z" },
+	["Obsidian"] = { { "cmd", "ctrl" }, "o" },
+	["Slack"] = { { "cmd", "ctrl" }, "s" },
+	["Zed"] = { { "cmd", "ctrl" }, "d" },
+})
+
+spoon.ReloadConfiguration:start()
