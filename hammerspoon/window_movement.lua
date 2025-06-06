@@ -27,10 +27,12 @@ local bindings = {
     ["Return"] = "maximize",
 }
 
+-- build functions for positions with layout table and mover
 for name, layout in pairs(layouts) do
     positions[name] = mover(layout)
 end
 
+-- bind keys in bindings to positions
 for key, position in pairs(bindings) do
     hs.hotkey.bind(HYPER, key, function()
         local win = hs.window.focusedWindow()
