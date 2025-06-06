@@ -15,5 +15,5 @@ local function keyCode(key, modifiers)
 end
 
 for key, direction in pairs(DIRECTIONS) do
-	hs.hotkey.bind({ "cmd", "ctrl" }, key, keyCode(direction), nil, keyCode(direction))
+	hs.hotkey.bind(HYPER, key, keyCode(direction), nil, keyCode(direction))
 end
