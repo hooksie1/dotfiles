@@ -3,6 +3,8 @@ local positions = {
     topRight = { x = 0.5, y = 0, w = 0.5, h = 0.5 },
     bottomLeft = { x = 0, y = 0.5, w = 0.5, h = 0.5 },
     bottomRight = { x = 0.5, y = 0.5, w = 0.5, h = 0.5 },
+    leftHalf = { x = 0, y = 0, w = 0.5, h = 1 },
+    rightHalf = { x = 0.5, y = 0, w = 0.5, h = 1 },
     maximize = function(win) win:maximize() end,
 }
 
@@ -11,6 +13,8 @@ local keys = {
     ["k"] = positions.bottomRight,
     ["u"] = positions.topLeft,
     ["i"] = positions.topRight,
+    ["Left"] = positions.leftHalf,
+    ["Right"] = positions.rightHalf,
     ["Return"] = positions.maximize,
 }
 
