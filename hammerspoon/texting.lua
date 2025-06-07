@@ -8,13 +8,13 @@ local function sendMessage()
 		end
 
 		local action, message =
-			hs.dialog.textPrompt("Send an iMessage to " .. chooser.subText, "Message to send", "", "Send", "Cancel")
+			hs.dialog.textPrompt("Send an iMessage to " .. chooser.text, "Message to send", "", "Send", "Cancel")
 
 		if action == "Cancel" then
 			return
 		end
 
-		hs.messages.iMessage(chooser.text, message)
+		hs.messages.iMessage(chooser.subText, message)
 	end)
 	chooser:choices(people)
 	chooser:show()
