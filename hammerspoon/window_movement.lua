@@ -42,7 +42,7 @@ end
 
 -- bind keys in bindings to positions
 for key, position in pairs(bindings) do
-	hs.hotkey.bind(HYPER, key, function()
+	hs.hotkey.bind(HYPERWINDOW, key, function()
 		local win = hs.window.focusedWindow()
 		if win then
 			positions[position](win)
