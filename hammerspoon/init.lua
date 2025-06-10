@@ -1,5 +1,6 @@
 hs.loadSpoon("ReloadConfiguration")
 HYPER = { "cmd", "ctrl" }
+HYPERWINDOW = { "cmd", "ctrl", "shift" }
 
 require("apps")
 require("vim")
