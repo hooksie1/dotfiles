@@ -37,7 +37,7 @@ local function showSnippetChooser()
 	local snippets = loadSnippets()
 	local chooser = hs.chooser.new(function(choice)
 		if choice then
-			hs.pasteboard.setContents(choice.content)
+			hs.pasteboard.setContents(choice.subText)
 			hs.alert.show("Snippet copied to clipboard")
 		end
 	end)
