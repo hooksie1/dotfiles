@@ -9,5 +9,6 @@ require("texting")
 require("window_movement")
 require("clipboard")
 require("snippets")
+require("window_menus")
 
 spoon.ReloadConfiguration:start()
