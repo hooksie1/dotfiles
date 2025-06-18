@@ -11,8 +11,8 @@ local layouts = {
 }
 
 local bindings = {
-	["j"] = "bottomLeft",
-	["k"] = "bottomRight",
+	["m"] = "bottomLeft",
+	[","] = "bottomRight",
 	["u"] = "topLeft",
 	["i"] = "topRight",
 	["Left"] = "leftHalf",
@@ -42,7 +42,7 @@ end
 
 -- bind keys in bindings to positions
 for key, position in pairs(bindings) do
-	hs.hotkey.bind(HYPERSHIFT, key, function()
+	hs.hotkey.bind(HYPEROPT, key, function()
 		local win = hs.window.focusedWindow()
 		if win then
 			positions[position](win)
