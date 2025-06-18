@@ -45,5 +45,5 @@ local function showSnippetChooser()
 	chooser:show()
 end
 
-hs.hotkey.bind(HYPERSHIFT, "n", snippetPrompt)
-hs.hotkey.bind(HYPERSHIFT, "s", showSnippetChooser)
+hs.hotkey.bind(HYPER, "n", snippetPrompt)
+hs.hotkey.bind(HYPER, "s", showSnippetChooser)
