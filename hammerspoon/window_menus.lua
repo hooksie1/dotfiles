@@ -33,7 +33,7 @@ local function flattenMenuItems(items, path, results)
 	return results
 end
 
-hs.hotkey.bind(HYPER, "m", function()
+hs.hotkey.bind(HYPERSHIFT, "m", function()
 	local win = hs.window.focusedWindow()
 	if not win then
 		return
