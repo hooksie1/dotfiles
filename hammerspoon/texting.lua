@@ -20,4 +20,4 @@ local function sendMessage()
 	chooser:show()
 end
 
-hs.hotkey.bind(HYPER, "s", sendMessage, nil, nil)
+hs.hotkey.bind(HYPER, "i", sendMessage, nil, nil)
