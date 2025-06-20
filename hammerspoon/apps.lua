@@ -1,10 +1,10 @@
 APPS = {
-	["g"] = "com.mitchellh.ghostty",
-	["z"] = "app.zen-browser.zen",
-	["o"] = "md.obsidian",
-	["s"] = "com.tinyspeck.slackmacgap",
-	["d"] = "dev.zed.Zed",
-	["t"] = "ru.keepcoder.Telegram",
+	["1"] = "com.mitchellh.ghostty",
+	["2"] = "app.zen-browser.zen",
+	["3"] = "md.obsidian",
+	["4"] = "com.tinyspeck.slackmacgap",
+	["5"] = "dev.zed.Zed",
+	["6"] = "ru.keepcoder.Telegram",
 }
 
 local function activate(name)
@@ -14,7 +14,7 @@ local function activate(name)
 end
 
 for key, app in pairs(APPS) do
-	hs.hotkey.bind(HYPER, key, function()
+	hs.hotkey.bind(HYPEROPT, key, function()
 		activate(app)
 	end)
 end
