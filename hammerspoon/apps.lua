@@ -1,4 +1,4 @@
-APPS = {
+local APPS = {
 	{ key = "1", app = "com.mitchellh.ghostty" },
 	{ key = "2", app = "app.zen-browser.zen" },
 	{ key = "3", app = "md.obsidian" },

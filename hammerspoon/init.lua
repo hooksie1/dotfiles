@@ -11,5 +11,6 @@ require("clipboard")
 require("snippets")
 require("window_menus")
 require("window_selection")
+require("spongebob")
 
 spoon.ReloadConfiguration:start()
