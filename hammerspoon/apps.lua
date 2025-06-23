@@ -1,10 +1,10 @@
 APPS = {
-	["1"] = "com.mitchellh.ghostty",
-	["2"] = "app.zen-browser.zen",
-	["3"] = "md.obsidian",
-	["4"] = "com.tinyspeck.slackmacgap",
-	["5"] = "dev.zed.Zed",
-	["6"] = "ru.keepcoder.Telegram",
+	{ key = "1", app = "com.mitchellh.ghostty" },
+	{ key = "2", app = "app.zen-browser.zen" },
+	{ key = "3", app = "md.obsidian" },
+	{ key = "4", app = "com.tinyspeck.slackmacgap" },
+	{ key = "5", app = "dev.zed.Zed" },
+	{ key = "6", app = "ru.keepcoder.Telegram" },
 }
 
 local function activate(name)
@@ -13,24 +13,21 @@ local function activate(name)
 	end
 end
 
-for key, app in pairs(APPS) do
-	hs.hotkey.bind(HYPEROPT, key, function()
-		activate(app)
+for _, v in ipairs(APPS) do
+	hs.hotkey.bind(HYPEROPT, v.key, function()
+		activate(v.app)
 	end)
 end
 
 hs.hotkey.bind(HYPEROPT, "a", function()
 	help = string.format("Applications \n\n")
 
-	local keys = {}
-	for k in pairs(APPS) do
-		table.insert(keys, k)
-	end
+	table.sort(APPS, function(a, b)
+		return a.key < b.key
+	end)
 
-	table.sort(keys)
-
-	for _, key in ipairs(keys) do
-		help = help .. string.format("%s -> %s\n", key, APPS[key])
+	for _, v in ipairs(APPS) do
+		help = help .. string.format("%s -> %s\n", v.key, v.app)
 	end
 	hs.alert.show(help)
 end)
