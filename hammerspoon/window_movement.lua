@@ -46,14 +46,16 @@ local positions = {
 	end,
 }
 
-positions["leftToggle"] = toggleLayouts(layouts.topLeft, layouts.topLeftThird)
-positions["rightToggle"] = toggleLayouts(layouts.topRight, layouts.topRightThird)
+positions["topLeftToggle"] = toggleLayouts(layouts.topLeft, layouts.topLeftThird)
+positions["topRightToggle"] = toggleLayouts(layouts.topRight, layouts.topRightThird)
+positions["bottomLeftToggle"] = toggleLayouts(layouts.bottomLeft, layouts.bottomLeftThird)
+positions["bottomRightToggle"] = toggleLayouts(layouts.bottomRight, layouts.bottomRightThird)
 
 local bindings = {
-	["m"] = "bottomLeft",
-	[","] = "bottomRight",
-	["u"] = "leftToggle",
-	["i"] = "rightToggle",
+	["m"] = "bottomLeftToggle",
+	[","] = "bottomRightToggle",
+	["u"] = "topLeftToggle",
+	["i"] = "topRightToggle",
 	["Left"] = "leftHalf",
 	["Right"] = "rightHalf",
 	["Down"] = "bottomHalf",
