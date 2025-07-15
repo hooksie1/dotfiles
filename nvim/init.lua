@@ -205,6 +205,7 @@ vim.keymap.set('v', '<leader>(', 'xi()<Esc>P')
 vim.keymap.set('v', '<leader>[', 'xi[]<Esc>P')
 vim.keymap.set('v', '<leader>"', 'xi""<Esc>P')
 vim.keymap.set('v', "<leader>'", "xi''<Esc>P")
+vim.keymap.set('v', '<leader>`', 'xi``<Esc>P')
 vim.keymap.set('i', '<D-v>', '<C-r>+')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
