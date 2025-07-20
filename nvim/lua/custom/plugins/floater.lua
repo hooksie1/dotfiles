@@ -18,6 +18,7 @@ return {
   dev = true,
   opts = {
     key_mapping = [[<C-y>]],
+    insert_on_open = true,
     escape = [[<esc>1]],
     jobs = {
       ['<leader>gr'] = 'go run .\r\n',

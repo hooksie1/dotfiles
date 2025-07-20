@@ -12,6 +12,7 @@ local default_opts = {
   key_mapping = '<C-t>',
   escape = '<esc><esc>',
   jobs = {},
+  insert_on_open = false,
 }
 
 local function create_floating_window(opts)
@@ -48,7 +49,7 @@ local function create_floating_window(opts)
   return { buf = buf, win = win }
 end
 
-local function toggle_terminal()
+local function toggle_terminal(insert_on_open)
   if not vim.api.nvim_win_is_valid(state.floating.win) then
     state.floating = create_floating_window { buf = state.floating.buf }
     if vim.bo[state.floating.buf].buftype ~= 'terminal' then
@@ -57,6 +58,11 @@ local function toggle_terminal()
     end
   else
     vim.api.nvim_win_hide(state.floating.win)
+    return
+  end
+
+  if insert_on_open then
+    vim.cmd 'startinsert'
   end
 end
 
@@ -71,8 +77,14 @@ function M.setup(opts)
   vim.api.nvim_create_user_command('Floater', toggle_terminal, {})
 
   vim.keymap.set('t', opts.escape, '<C-\\><C-n>')
-  vim.keymap.set('n', opts.key_mapping, ':Floater<CR>', { desc = 'Toggle Terminal' })
-  vim.keymap.set('t', opts.key_mapping, '<C-\\><C-n> :Floater<CR>', { desc = 'Toggle Terminal' })
+  vim.keymap.set('n', opts.key_mapping, function()
+    toggle_terminal(opts.insert_on_open)
+  end, { desc = 'Toggle Terminal' })
+
+  vim.keymap.set('t', opts.key_mapping, function()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-\\><C-n>', true, false, true), 'n', false)
+    toggle_terminal(opts.insert_on_open)
+  end, { desc = 'Toggle Terminal' })
 
   for key, job in pairs(opts.jobs) do
     if type(key) == 'string' and type(job) == 'string' then
