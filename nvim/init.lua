@@ -254,6 +254,8 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Custom terminal setup
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -902,6 +904,10 @@ require('lazy').setup({
       task = '📌',
       lazy = '💤 ',
     },
+  },
+  dev = {
+    path = '~/dotfiles/nvim/lua/dev',
+    patterns = { '*' },
   },
 })
 
