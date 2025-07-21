@@ -24,6 +24,7 @@ return {
       ['<leader>gr'] = 'go run .\r\n',
       ['<leader>gt'] = 'go test -v ./...\r\n',
       ['<leader>mt'] = 'make test\r\n',
+      ['<leader>mb'] = 'make build\r\n',
     },
   },
 }
