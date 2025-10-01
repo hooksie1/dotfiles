@@ -254,6 +254,13 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Custom filetype syntax highlighting
+vim.filetype.add {
+  pattern = {
+    ['Dockerfile.*'] = 'dockerfile',
+  },
+}
+
 -- Custom terminal setup
 
 -- [[ Configure and install plugins ]]
