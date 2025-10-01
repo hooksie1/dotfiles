@@ -586,6 +586,8 @@ require('lazy').setup({
         -- clangd = {},
         yamlls = {},
         gopls = {},
+        cuelsp = {},
+        dockerls = {},
         zls = {},
         v_analyzer = {
           default_config = {
