@@ -1,49 +1,57 @@
 local wezterm = require("wezterm")
 
+local platform = require("utils.platform")
+
 local act = wezterm.action
 
-local config = wezterm.config_builder()
+local mod = {}
 
-config.color_scheme = "Tokyo Night"
+if platform.is_mac then
+	mod.SUPER = "SUPER"
+	mod.CTRL = "CTRL"
+elseif platform.is_win or platform.is_linux then
+	mod.SUPER = "ALT"
+	mod.CTRL = "CTRL"
+end
 
-config.font = wezterm.font("JetBrains Mono")
-
-config.keys = {
+local keys = {
 	{
 		key = "t",
-		mods = "CTRL",
+		mods = mod.CTRL,
 		action = act.ActivateKeyTable({
 			name = "tabs",
-			one_shot = false,
+			one_shot = true,
+			until_unknown = true,
 		}),
 	},
 	{
 		key = "p",
-		mods = "CTRL",
+		mods = mod.CTRL,
 		action = act.ActivateKeyTable({
 			name = "activate_pane",
-			one_shot = false,
-		}),
-	},
-	{
-		key = "i",
-		mods = "CTRL",
-		action = act.ActivateKeyTable({
-			name = "split_panes",
+			one_shot = true,
 			timeout_milliseconds = 1000,
 		}),
 	},
 	{
-		key = "n",
-		mods = "CTRL",
+		key = "p",
+		mods = mod.SUPER,
+		action = act.ActivateKeyTable({
+			name = "split_panes",
+			one_shot = true,
+		}),
+	},
+	{
+		key = "r",
+		mods = mod.SUPER,
 		action = act.ActivateKeyTable({
 			name = "resize_pane",
-			one_shot = false,
+			one_shot = true,
 		}),
 	},
 }
 
-config.key_tables = {
+local key_tables = {
 	tabs = {
 		{ key = "h", action = act.ActivateTabRelative(-1) },
 		{ key = "l", action = act.ActivateTabRelative(1) },
@@ -81,9 +89,7 @@ config.key_tables = {
 	},
 }
 
---config.default_prog = { "/bin/zsh", "-l", "-c", "/opt/homebrew/bin/zellij" }
---
-function tab_title(tab_info)
+local function tab_title(tab_info)
 	local title = tab_info.tab_title
 	if title and #title > 0 then
 		return title
@@ -104,4 +110,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return title
 end)
 
-return config
+return {
+	keys = keys,
+	key_tables = key_tables,
+}
