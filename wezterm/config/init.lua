@@ -12,8 +12,8 @@ function Config:init()
 	return config
 end
 
---Append to 'Config.options'
---@param new_options table new options to append 
+--Append to 'Config'
+--@param new_options table of config options to append
 --@return Config 
 function Config:append(new_options)
 	for k, v in pairs(new_options) do
