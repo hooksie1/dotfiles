@@ -89,19 +89,6 @@ local key_tables = {
 	},
 }
 
-local function tabValues()
-	local keys = {}
-	for i = 1, 9 do
-		keys[#keys + 1] = { key = tostring(i), action = act.ActivateTab(i - 1) }
-	end
-
-	return keys
-end
-
-for _, mapping in pairs(tabValues()) do
-	table.insert(key_tables.tabs, mapping)
-end
-
 local function tab_title(tab_info)
 	local title = tab_info.tab_title
 	if title and #title > 0 then
